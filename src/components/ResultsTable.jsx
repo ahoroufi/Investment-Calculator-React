@@ -1,4 +1,6 @@
-function ResultsTable() {
+import { formatter } from "../util/investment";
+
+function ResultsTable({results}) {
     return (
         <table id="result">
             <thead>
@@ -10,7 +12,16 @@ function ResultsTable() {
                     <th>Invested Capital</th>
                 </tr>
             </thead>
-            <tbody><tr><td></td></tr></tbody>
+            <tbody>
+               { results.map(result => 
+                <tr>
+                    <td>{(result.year)}</td>
+                    <td>{formatter.format(result.valueEndOfYear)}</td>
+                    <td>{formatter.format(result.interest)}</td>
+                    <td>{formatter.format(result.annualInvestment)}</td>
+                </tr>
+                )}
+            </tbody>
         </table>
     );
 }

@@ -1,33 +1,34 @@
 import { use } from "react";
 import { useState } from "react";
 
-function handleChange(e){
-    console.log(e.target.id, ": ", e.target.value);
-}
 
 
-function UserInput(){
+
+function UserInput({userUpdate}){
+    function handleChange(event) {
+        userUpdate(event.target.name, event.target.value);
+    }
     return (
         <div id="user-input">
-            <div class="input-group">
+            <div className="input-group">
                 <div>
-                    <label for="initial-investment">INITIAL INVESTMENT</label>
-                    <input type="number" id="initialInvestment" name="initial-investment" onChange={handleChange} placeholder="0" />
+                    <label htmlFor="initialInvestment">INITIAL INVESTMENT</label>
+                    <input type="number" name="initialInvestment" onChange={handleChange} placeholder="0" />
                 </div>
                 <div>
-                    <label for="annual-investment">ANNUAL INVESTMENT</label>
-                    <input type="number" id="annualInvestment" name="annual-investment" placeholder="0" />
+                    <label htmlFor="annualInvestment">ANNUAL INVESTMENT</label>
+                    <input type="number" name="annualInvestment" onChange={handleChange} placeholder="0" />
                 </div>
             </div>
 
-            <div class="input-group">
+            <div className="input-group">
                 <div>
-                    <label for="expected-return">EXPECTED RETURN</label>
-                    <input type="number" id="expectedReturn" name="expected-return" placeholder="0" />
+                    <label htmlFor="expectedReturn">EXPECTED RETURN</label>
+                    <input type="number" name="expectedReturn" onChange={handleChange} placeholder="0" />
                 </div>
                 <div>
-                    <label for="duration">DURATION</label>
-                    <input type="number" id="duration" name="duration" placeholder="0" />
+                    <label htmlFor="duration">DURATION</label>
+                    <input type="number" name="duration" onChange={handleChange} placeholder="0" />
                 </div>
             </div>
         </div>
